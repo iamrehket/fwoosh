@@ -1,0 +1,19 @@
+name: ossie-drift
+
+# Fails when the vendored apache/ossie files (src/fwoosh/_vendor/ossie/) no longer
+# match upstream main, or have been edited locally. See scripts/check_ossie_drift.py.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1" # weekly, Monday 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv run scripts/check_ossie_drift.py

@@ -1,0 +1,10 @@
+{
+  "repo": "apache/ossie",
+  "branch": "main",
+  "ref": "c02409cf746e0150ed4134185e3d9ac93fdca143",
+  "vendored_at": "2026-08-27",
+  "files": {
+    "python/src/ossie/models.py": "src/fwoosh/_vendor/ossie/models.py",
+    "core-spec/ossie-schema.json": "src/fwoosh/_vendor/ossie/ossie-schema.json"
+  }
+}

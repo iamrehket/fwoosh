@@ -1,0 +1,40 @@
+[project]
+name = "fwoosh"
+version = "0.1.0"
+description = "Compile Apache Ossie semantic models into SQL"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [
+    { name = "rehket", email = "aalbright@iamrehket.me" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "pydantic>=2.13.4",
+    "pyyaml>=6.0.3",
+    "sqlglot>=30.17.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.26,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.5",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+# Vendored upstream code is byte-for-byte from apache/ossie; never lint or format it.
+extend-exclude = ["src/fwoosh/_vendor"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Network tests (upstream drift check) are opt-in: `uv run pytest -m network`.
+addopts = "-m 'not network'"
+markers = ["network: requires internet access (checks vendored ossie files against upstream)"]
