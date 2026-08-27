@@ -27,8 +27,8 @@ dev = [
 [tool.ruff]
 line-length = 100
 target-version = "py314"
-# Vendored upstream code is byte-for-byte from apache/ossie; never lint or format it.
-extend-exclude = ["src/fwoosh/_vendor"]
+# Vendored code (apache/ossie models, grimore's grim.py) is byte-for-byte upstream; never lint or format it.
+extend-exclude = ["src/fwoosh/_vendor", "tools/grim.py"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
