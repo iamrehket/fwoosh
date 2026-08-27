@@ -1,0 +1,8 @@
+[grimore]
+components = "docs/components"
+current = "docs/current"
+specs = "docs/specs"
+plans = "docs/plans"
+default_branch = "main"
+types = ["adr", "term", "usecase", "constraint", "nongoal", "note"]
+instruction_files = ["CLAUDE.md", "AGENTS.md"]

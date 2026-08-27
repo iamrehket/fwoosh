@@ -1,0 +1,16 @@
+name: grim
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  grim-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # required: grim check fails closed without full history
+      - uses: astral-sh/setup-uv@v5
+      - run: uv run tools/grim.py check
