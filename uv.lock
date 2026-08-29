@@ -40,7 +40,7 @@ dev = [
 requires-dist = [
     { name = "pydantic", specifier = ">=2.13.4" },
     { name = "pyyaml", specifier = ">=6.0.3" },
-    { name = "sqlglot", specifier = ">=30.17.0" },
+    { name = "sqlglot", specifier = ">=30.17.0,<31" },
 ]
 
 [package.metadata.requires-dev]
